@@ -1,9 +1,9 @@
-Goal
+# Goal
 
 The goal is to align two different bus trips datasets to one common ontology, and to generate an RDF version of each, in order to ease the manipulation of their geographical data. 
 
 
-Tools Used 
+# Tools Used 
 
 API connection is made with requests Python library. 
 
