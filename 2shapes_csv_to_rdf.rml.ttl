@@ -1,0 +1,47 @@
+@prefix : <http://example.org/rules/> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix eona: <http://www.eona-x.eu/> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix zenbus: <http://zenbus.net/> .
+
+
+:TriplesMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source [
+      a csvw:Table;
+      csvw:url "/home/maximeb/pro/eonax/oguc_bus_uc/rml_tests/rml_mapping/shapes.csv";
+      csvw:dialect [
+        a csvw:Dialect;
+        csvw:delimiter ","
+      ]
+    ];
+    rml:referenceFormulation ql:CSV
+  ].
+
+:TriplesMap rr:subjectMap [
+    rr:template "http://zenbus.net/{shape_id}"
+    ].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [ rr:constant eona:BusTrip ];
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate wgs84_pos:lat;
+  rr:objectMap [ rml:reference "shape_pt_lat" ];
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate wgs84_pos:lon;
+  rr:objectMap [ rml:reference "shape_pt_lon" ];
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate eona:pointSequence;
+  rr:objectMap [ rml:reference "shape_pt_sequence" ];
+].
