@@ -1,0 +1,34 @@
+@prefix : <http://example.org/rules/> .
+@prefix eona: <http://www.eona-x.eu/> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix lyon: <https://data.grandlyon.com/> .
+
+:TriplesMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/maximeb/pro/eonax/oguc_bus_uc/lyon_bus2.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.features[*]"
+  ].
+
+:TriplesMap rr:subjectMap [
+  rr:template "https://data.grandlyon.com/{id}"
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [ rr:constant eona:BusTrip ];
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate wgs84_pos:lat;
+  rr:objectMap [ rml:reference "geometry.coordinates[0][*][1]" ];
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate wgs84_pos:lon;
+  rr:objectMap [ rml:reference "geometry.coordinates[0][*][0]" ];
+].
