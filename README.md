@@ -13,3 +13,5 @@ Copy the following commands:
 
 
 Link to RMLMapper: https://github.com/RMLio/rmlmapper-java
+
+Take a look at the results in the folder **results**.
