@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://vocab.gtfs.org/terms#" uri="http://vocab.gtfs.org/gtfs.ttl"/>
+    <uri id="Imports Wizard Entry" name="https://w3id.org/def/gtfs_v1" uri="file:/home/maximeb/pro/eonax/data_modeling_wg/ontologies/GTFS_base.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

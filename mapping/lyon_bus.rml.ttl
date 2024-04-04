@@ -1,0 +1,35 @@
+@prefix : <http://example.org/rules/> .
+# @prefix eona: <http://www.eona-x.eu/> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix lyon: <https://data.grandlyon.com/> .
+@prefix gtfs: <http://vocab.gtfs.org/terms#> .
+
+:TriplesMap a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "/home/maximeb/github/datasets_alignment/datasets/lyon_bus.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.features[*]"
+  ].
+
+:TriplesMap rr:subjectMap [
+  rr:template "https://data.grandlyon.com/{id}"
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate rdf:type;
+  rr:objectMap [ rr:constant gtfs:Shape ];
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate geo:lat;
+  rr:objectMap [ rml:reference "geometry.coordinates[0][*][1]" ];
+].
+
+:TriplesMap rr:predicateObjectMap [
+  rr:predicate geo:lon;
+  rr:objectMap [ rml:reference "geometry.coordinates[0][*][0]" ];
+].
