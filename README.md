@@ -9,9 +9,12 @@ Copy the following commands:
 
     java -jar ./rmlmapper-java/target/rmlmapper-6.5.1-r373-all.jar ./datasets/paris_bus.csv -c ./config/paris_bus.properties
 
-    java -jar ./rmlmapper-java/target/rmlmapper-6.5.1-r373-all.jar ./datasets/lyon_bus.csv -c ./config/lyon_bus.properties
+    java -jar ./rmlmapper-java/target/rmlmapper-6.5.1-r373-all.jar ./datasets/lyon_bus.json -c ./config/lyon_bus.properties
 
 
 Link to RMLMapper: https://github.com/RMLio/rmlmapper-java
 
-Take a look at the results in the folder **results**.
+
+# RDF Results
+
+Results in the folder **results**.
